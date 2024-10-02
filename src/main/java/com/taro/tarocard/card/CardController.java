@@ -1,5 +1,7 @@
 package com.taro.tarocard.card;
-
+import com.taro.tarocard.category.CategoryService;
+import com.taro.tarocard.category.Category;
+import com.taro.tarocard.category.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,13 +13,16 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/taro")
+@RequestMapping("/view/category")
 public class CardController {
     private final CardService cardService;
+    private final CategoryService categoryService;
 
-    @GetMapping("/love/{id}")
-    public Card getCardById (@PathVariable("id") Integer id, Model model) {
-        return this.cardService.getCardById(id);
+    @GetMapping("/연애운")
+    public String getCardById (Model model) {
+        List<Category> categories = categoryService.findCategoriesByName("연애운");
+        model.addAttribute("categories", categories);
+        return "cardchoise_page";
     }
 
 

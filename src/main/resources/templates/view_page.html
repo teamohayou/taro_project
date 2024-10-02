@@ -5,7 +5,9 @@
 <head>
     <title>카테고리 선택</title>
     <style>
-        .card-container { display: flex; justify-content: center; flex-wrap: wrap; }
+        .card-container {
+         display: flex; justify-content: center; flex-wrap: wrap;
+    }
         .card {
          transition: transform 0.8s ease;
          cursor: pointer;
@@ -48,7 +50,7 @@
     <div th:each="category : ${categories}" class="card" style="width: 18rem;">
         <div class="card-body">
             <h5 class="card-title" th:text="${category.categoryname}"></h5>
-            <a th:href="@{|/view/categories/${category.categoryname}|}" class="btn btn-primary">선택</a>
+            <a th:href="@{|/view/category/${category.categoryname}|}" class="btn btn-primary">선택</a>
         </div>
     </div>
 </div>
