@@ -13,6 +13,6 @@ public class FeedbackController {
 
     @GetMapping("/list")
     public String list () {
-        return "main_page";
+        return "main_page.";
     }
 }
